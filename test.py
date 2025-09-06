@@ -7,3 +7,6 @@ print("Hello, python!")
 print("Hi")
 a = 10
 print(a)
+
+while(a == 10):
+    print("meow")
