@@ -1,8 +1,8 @@
-import logging
-import basic
+import logging  #Импорт модулей
+import basic        
 import advancexd
 
-logging.basicConfig(
+logging.basicConfig(                    #Добавление параметров логирования
     level = logging.DEBUG,
     format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     datefmt = '%Y-%m-%d %H:%M:%S'
@@ -10,34 +10,35 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 logger.info("Программа началась")
-recognition = input("Введите операцию без пробелов(+; -; *: /; **; f)")
-logger.debug("Пользователь ввёл операцию: %s", recognition)
-if recognition == 'f':
-    z = int(input(f"Введите число: "))
-    logger.debug("Пользователь ввёл число для факториала: %s", z)
+operation = input("Введите операцию без пробелов(+; -; *: /; **; f)") #Запрос операции у пользователя
+logger.debug("Пользователь ввёл операцию: %s", operation)
+if operation == 'f':        #Проверка операции на 2 ситуации (факториал или нет)
+    f = int(input(f"Введите число: "))
+    logger.debug("Пользователь ввёл число для факториала: %s", f)
 else:
-    x = int(input("Введите 1 число (оно будет вычитаемым и т.п.)"))
-    y = int(input("Введите 2 число (оно будет делимым и т.п.)"))
-    logger.debug("Пользователь ввёл две переменных %s, %s", x, y)
+    a = int(input("Введите первое число (над ним будут происходть все операции): "))
+    b = int(input("Введите второе число: "))
+    logger.debug("Пользователь ввёл две переменных %s, %s", a, b)
 
-if recognition == '+':
-    logger.debug("Пользователь запросил операцию сложения %s, %s", x, y)
-    print(basic.addition(x, y))
-elif recognition == '-':
-    logger.debug("Пользователь запросил операцию вычитания %s, %s", x, y)
-    print(basic.subtraction(x, y))
-elif recognition == '*':
-    logger.debug("Пользователь запросил операцию умножения %s, %s", x, y)
-    print(basic.multiplication(x, y))
-elif recognition == '/':
-    logger.debug("Пользователь запросил операцию деления %s, %s", x, y)
-    print(basic.division(x, y))
-elif recognition == '**':
-    logger.debug("Пользователь запросил операцию возведения в стпень %s, %s", x, y)
-    print(advancexd.degree(x, y))
-elif recognition == 'f':
-    logger.debug("Пользователь запросил операцию факториал %s", z)
-    print(advancexd.factorial(z))
-else:
-    logger.warning("Команда не распознана: %s", recognition)
-    
+
+match operation:        #Подбираем операция
+    case '+':
+        logger.debug("Пользователь запросил операцию сложения %s, %s", a, b)
+        print(basic.addition(a, b))
+    case '-':
+        logger.debug("Пользователь запросил операцию вычитания %s, %s", a, b)
+        print(basic.subtraction(a, b))
+    case '*':
+        logger.debug("Пользователь запросил операцию умножения %s, %s", a, b)
+        print(basic.multiplication(a, b))
+    case '/':
+        logger.debug("Пользователь запросил операцию деления %s, %s", a, b)
+        print(basic.division(a, b))
+    case '**':
+        logger.debug("Пользователь запросил операцию возведения в степень %s, %s", a, b)
+        print(advancexd.degree(f))
+    case 'f':
+        logger.debug("Пользователь запросил операцию факториал %s, %s", f)
+        print(advancexd.factorial(f))
+    case _:
+        logger.warning("Команда не распознана: %s", operation) #Ошибка. Операция не распознана

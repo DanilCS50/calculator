@@ -6,31 +6,47 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def addition(x, y):
+def addition(a, b):
+
+    """Функция сложения. Принимате два чила типа int и сладывате их. 
+    Возвращает одно число типа int."""
+
     logger.info("Запущена функция сложения")
-    z = x + y
-    logger.debug("Результат сложения: %s", z)
+    result = a + b
+    logger.debug("Результат сложения: %s", result)
     logger.info("Результат возвращается")
-    return z
+    return result
 
-def subtraction(x, y):
+def subtraction(a, b):
+
+    """Операция вычитания. Принимает два числа типа int и вычитает второе число из первого. 
+    Возвращае одно число типа int."""
+
     logger.info("Запущена функция вычитания")
-    z = x - y
-    logger.debug("Результат вычитания: %s", z)
+    result = a - b
+    logger.debug("Результат вычитания: %s", result)
     logger.info("Результат возвращается")
-    return z
+    return result
 
-def multiplication(x, y):
+def multiplication(a, b):
+
+    """Операция умножения. Принимает два числа типа int и перемножает.
+    Возвращает одно число типа int"""
+
     logger.info("Запущена функция умножения")
-    z = x * y
-    logger.debug("Результат умножения: %s", z)
+    result = a * b
+    logger.debug("Результат умножения: %s", result)
     logger.info("Результат возвращается")
-    return z
+    return result
 
-def division(x, y):
+def division(a, b):
+    
+    """Операция деления. Принимает два числа типа int и делит первое число на второе.
+    Возвращает одно число типа int"""
+    
     logger.info("Запущена функция деления")
-    z = x / y
-    logger.debug("Результат деления: %s", z)
+    result = a / b
+    logger.debug("Результат деления: %s", result)
     logger.info("Результат возвращается")
-    return z
+    return result
 

@@ -6,19 +6,26 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def factorial(x):
-    logger.info("Функция факториала запущена")
-    if x == 1:
-        logger.debug("Возвращение функции x == 1")
-        return x
-    else:
-        logger.debug("Рекурсия: x = %s", x)
-        return x * factorial(x-1)
-        
+def factorial(f):
 
-def degree(x, y):
+    """"Операция факториал. Принимает одно число типа int и вычисляет факториал этого числа
+    с помощью рекурсии. Возвращает одно число типа int"""
+
+    logger.info("Функция факториала запущена")
+    if f == 1:
+        logger.debug("Возвращение функции x == 1")
+        return f
+    else:
+        logger.debug("Рекурсия: x = %s", f)
+        return f * factorial(f-1)
+        
+def degree(a, b):
+
+    """Операция возведения в степень. Принимает два числа типа int и 
+    возводит первое число в степень второго числа. Возвращает одно число типа int"""
+    
     logger.info("Функция возведения в стпень запущена")
-    z = x ** y
-    logger.debug("Результат возведении в стпень = %s", z)
+    result = a ** b
+    logger.debug("Результат возведении в стпень = %s", result)
     logger.info("Функция возвращает значение")
-    return z
+    return result
