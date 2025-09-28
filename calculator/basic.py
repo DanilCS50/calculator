@@ -43,10 +43,10 @@ def division(a, b):
     
     """Операция деления. Принимает два числа типа int и делит первое число на второе.
     Возвращает одно число типа int"""
-    
+
     logger.info("Запущена функция деления")
     result = a / b
     logger.debug("Результат деления: %s", result)
     logger.info("Результат возвращается")
     return result
-
+#Добавить try exept (ZeroError)
