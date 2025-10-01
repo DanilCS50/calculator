@@ -10,7 +10,7 @@ logging.basicConfig(                    #Добавление параметро
 logger = logging.getLogger(__name__)
 
 logger.info("Программа началась")
-operation = input("Введите операцию без пробелов(+; -; *: /; **; f)") #Запрос операции у пользователя
+operation = input("Введите операцию без пробелов(+; -; *; /; **; f)") #Запрос операции у пользователя
 logger.debug("Пользователь ввёл операцию: %s", operation)
 if operation == 'f':        #Проверка операции на 2 ситуации (факториал или нет)
     f = int(input(f"Введите число: "))
@@ -36,9 +36,9 @@ match operation:        #Подбираем операция
         print(basic.division(a, b))
     case '**':
         logger.debug("Пользователь запросил операцию возведения в степень %s, %s", a, b)
-        print(advancexd.degree(f))
+        print(advancexd.degree(a, b))
     case 'f':
-        logger.debug("Пользователь запросил операцию факториал %s, %s", f)
+        logger.debug("Пользователь запросил операцию факториал %s", f)
         print(advancexd.factorial(f))
     case _:
         logger.warning("Команда не распознана: %s", operation) #Ошибка. Операция не распознана
